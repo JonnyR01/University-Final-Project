@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/maincourses',[\App\Http\Controllers\ProductsController::class, 'maincourses']);
+
+Route::get('/house-specials',[\App\Http\Controllers\ProductsController::class, 'specials']);
+

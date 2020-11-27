@@ -20,8 +20,10 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                @auth
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
+
                         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                 <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -37,6 +39,7 @@
                                 </div>
                             </button>
                         @endif
+
                     </x-slot>
 
                     <x-slot name="content">
@@ -100,6 +103,7 @@
                         </form>
                     </x-slot>
                 </x-jet-dropdown>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -115,6 +119,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
+    @auth
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -189,4 +194,5 @@
             </div>
         </div>
     </div>
+    @endauth
 </nav>
