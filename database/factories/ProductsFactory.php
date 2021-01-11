@@ -19,7 +19,7 @@ class ProductsFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition() //faker to place the data into the database for testing
     {
         return [
             'name'=> $this->faker->sentence(3),

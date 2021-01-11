@@ -48,28 +48,30 @@
                 </div>
             </div>
 
-            <div class="p-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-t-0">
                 <div class="flex items-center">
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Breakfast</a>
+                        <a href="http://127.0.0.1:8000/breakfasts" class="underline text-gray-900 dark:text-white">Breakfast</a>
                     </div>
                 </div>
 
                 <div class="ml-12">
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        A big dorty fry etc., etc.
+                        A fry etc., etc.
                     </div>
                 </div>
             </div>
 
-            <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+            <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                 <div class="flex items-center">
-                    <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Deserts</div>
+                    <div class="ml-4 text-lg leading-7 font-semibold">
+                        <a href="http://127.0.0.1:8000/deserts" class="underline text-gray-900 dark:text-white">Deserts</a>
+                    </div>
                 </div>
 
                 <div class="ml-12">
                     <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                        Dank cakes and shiz
+                    Ice cream, cake etc., etc.
                     </div>
                 </div>
             </div>
