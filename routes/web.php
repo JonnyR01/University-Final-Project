@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminProducts;
 
 
 
@@ -20,3 +21,8 @@ Route::get('/breakfasts',[\App\Http\Controllers\ProductsController::class, 'brea
 
 Route::get('/deserts',[\App\Http\Controllers\ProductsController::class, 'deserts']);
 
+
+//Admin Routes
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/products', AdminProducts::class);
+});
