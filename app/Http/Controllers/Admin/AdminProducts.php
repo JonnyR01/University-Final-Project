@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Products;
 use Illuminate\Http\Request;
+use Stripe\Product;
 
 class AdminProducts extends Controller
 {
@@ -13,10 +14,12 @@ class AdminProducts extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
        $products = Products::all();
-       return view('admin.products.index', ['products' => Products::all()]);
+       return view('admin.products.index', ['products' => Products::paginate(10)]);
     }
 
     /**
@@ -26,7 +29,7 @@ class AdminProducts extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create', ['products' =>Products::all()] );
     }
 
     /**
@@ -37,7 +40,8 @@ class AdminProducts extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Products::create($request->except(['_token']));
+        return redirect(route('admin.products.index'));
     }
 
     /**
@@ -46,7 +50,7 @@ class AdminProducts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($product)
     {
         //
     }
@@ -57,9 +61,9 @@ class AdminProducts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Products $product)
     {
-        //
+        return view('admin.products.edit')->withProduct($product);
     }
 
     /**
@@ -69,9 +73,10 @@ class AdminProducts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Products $product)
     {
-        //
+         $product->update($request->except(['_token']));
+        return redirect()->route('admin.products.index');
     }
 
     /**

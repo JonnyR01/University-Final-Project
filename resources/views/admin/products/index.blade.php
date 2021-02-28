@@ -5,7 +5,7 @@
            Products
         </h2>
         <a class="flex-shrink" href="{{ route('admin.products.create') }}">
-            <x-jet-button>Add new post</x-jet-button>
+            <x-jet-button>Add new product</x-jet-button>
         </a>
         </div>
     </x-slot>
@@ -46,5 +46,7 @@
         @endforeach
         </tbody>
     </table>
+
+    <div class="flex auto max-w-7xl mx-auto my-6 sm:px-6 lg:px-8 border-double border-4 border-light-blue-500 bg-white overflow-hidden shadow-xl sm:rounded-lg">  {{$products->links()}}</div>
 
 </x-app-layout>
