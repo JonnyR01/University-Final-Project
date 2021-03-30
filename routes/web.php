@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminProducts;
+use App\Http\Controllers\CartController;
 
 
 
@@ -25,4 +26,16 @@ Route::get('/deserts',[\App\Http\Controllers\ProductsController::class, 'deserts
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('/products', AdminProducts::class);
+});
+
+Route::get('/cart',[\App\Http\Controllers\CartController ::class, 'index'])->name('cart');
+
+Route::post('/cart/add/{product}',[\App\Http\Controllers\CartController ::class, 'addItem'])->name('cart.add');
+
+Route::get('/test', function () {
+    Cart::add('293ad', 'chips', 1, 2.50);
+});
+
+Route::get('/die', function () {
+    Cart::destroy();
 });
