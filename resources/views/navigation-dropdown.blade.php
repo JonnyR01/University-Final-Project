@@ -16,6 +16,35 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="http://127.0.0.1:8000/house-specials" :active="request()->routeIs('house-specials')">
+                        {{ __('House Specials') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="http://127.0.0.1:8000/maincourses" :active="request()->routeIs('maincourses')">
+                        {{ __('Main Courses') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="http://127.0.0.1:8000/breakfasts" :active="request()->routeIs('breakfasts')">
+                        {{ __('Breakfast') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="http://127.0.0.1:8000/deserts" :active="request()->routeIs('deserts')">
+                        {{ __('Desert') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('cart') }}" :active="request()->routeIs('cart')">
+                        {{ __('View Cart') }}
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

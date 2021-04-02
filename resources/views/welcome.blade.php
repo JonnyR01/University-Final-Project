@@ -41,5 +41,6 @@
 
 
         </div>
+        <x-treenation::tracker />
     </body>
 </html>

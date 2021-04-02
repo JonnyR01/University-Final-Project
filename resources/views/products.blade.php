@@ -8,6 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                @if(session()->has('success'))
+                    {{ session()->get('success') }}
+                @endif
+
                 @foreach($products as $product)  <?php /*loop to display products from database, displaying the name of each product and its price to 2 decimal places */?>
                    <div class="flex p-4 m-2 hover:bg-gray-200">
                        <h1 class="text-xl flex-auto"> {{$product->name}}</h1>

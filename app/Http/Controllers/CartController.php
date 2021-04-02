@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Gloudemans\Shoppingcart\Contracts\Buyable;
+use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use App\Models\Products;
+use Illuminate\Support\Facades\Auth;
+
 class CartController extends Controller
 {
     public function index()
     {
         $contents = Cart::content();
         return view('cart')->with('contents', $contents);
+    }
+
+    public function checkout()
+    {
+        $user = Auth::user();
+        $stripeCustomer = $user->createOrGetStripeCustomer();
+        return view('checkout', [
+            'intent' => $user->createSetupIntent()
+        ]);
     }
 
     /**
@@ -23,15 +33,16 @@ class CartController extends Controller
     public function addItem(Products $product)
     {
 
-       $product = Cart::add($product->id, $product->name, 1, $product->price);
-       return redirect()->back();
+        $product = Cart::add($product->id, $product->name, 1, $product->price);
+        session()->flash('success', 'Added to Cart');
+        return redirect()->back();
     }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -42,7 +53,7 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show()
@@ -53,7 +64,7 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function remItem()
@@ -64,8 +75,8 @@ class CartController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update()
@@ -76,11 +87,24 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Cart $cart)
     {
+        $cart = Cart::destroy();
+        session()->flash('success', 'Cart Removed');
+        return redirect()->back();
+    }
 
+    public function stripe(Request $request)
+    {
+        //dd($request);
+        $user = Auth::user();
+        $stripeCustomer = $user->createOrGetStripeCustomer();
+        $stripeCharge = $request->user()->charge(
+            Cart::pricetotal()*100, $request->get('card-id')
+        );
+        return redirect()->back();
     }
 }

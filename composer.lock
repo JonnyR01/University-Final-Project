@@ -4,8 +4,67 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08d815c409e9817b0df038a26b8bab26",
+    "content-hash": "538db9f25f279f40bf0651479091880a",
     "packages": [
+        {
+            "name": "anooserve/laravel-treenation",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/anooserve/treenation.git",
+                "reference": "5782dd048e569dba6390e8e4d06ed48548437693"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/anooserve%2Ftreenation/repository/archive.zip?sha=5782dd048e569dba6390e8e4d06ed48548437693",
+                "reference": "5782dd048e569dba6390e8e4d06ed48548437693",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Anooserve\\TreeNation\\TreeNationServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Anooserve\\TreeNation\\": "src",
+                    "Anooserve\\TreeNation\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Downey",
+                    "email": "andrew@anooserve.com",
+                    "homepage": "https://anooserve.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package to help integrate with https://tree-nation.com/.",
+            "homepage": "https://github.com/Anooserve/laravel-treenation",
+            "keywords": [
+                "Anooserve",
+                "laravel-treenation"
+            ],
+            "support": {
+                "issues": "https://gitlab.com/api/v4/projects/24107465/issues"
+            },
+            "time": "2021-02-07T20:40:41+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.1",
@@ -3289,6 +3348,70 @@
                 "stylesheet"
             ],
             "time": "2020-06-01T09:10:00+00:00"
+        },
+        {
+            "name": "srmklive/paypal",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/srmklive/laravel-paypal.git",
+                "reference": "0aefc864b351770f9e82b2fc88d8aa6c87de3c87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/0aefc864b351770f9e82b2fc88d8aa6c87de3c87",
+                "reference": "0aefc864b351770f9e82b2fc88d8aa6c87de3c87",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~7.0",
+                "illuminate/support": "~6.0|~7.0|~8.0",
+                "nesbot/carbon": "~2.0",
+                "php": ">=7.2|^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.0",
+                "symfony/var-dumper": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Srmklive\\PayPal\\Providers\\PayPalServiceProvider"
+                    ],
+                    "aliases": {
+                        "PayPal": "Srmklive\\PayPal\\Facades\\PayPal"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Srmklive\\PayPal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raza Mehdi",
+                    "email": "srmk@outlook.com"
+                }
+            ],
+            "description": "Laravel plugin For Processing Payments Through Paypal Express Checkout. Can Be Used Independently With Other Applications.",
+            "keywords": [
+                "http",
+                "laravel paypal",
+                "paypal",
+                "rest",
+                "web service"
+            ],
+            "support": {
+                "issues": "https://github.com/srmklive/laravel-paypal/issues",
+                "source": "https://github.com/srmklive/laravel-paypal/tree/3.0.3"
+            },
+            "time": "2021-03-02T09:52:07+00:00"
         },
         {
             "name": "stripe/stripe-php",

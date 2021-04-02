@@ -32,10 +32,9 @@ Route::get('/cart',[\App\Http\Controllers\CartController ::class, 'index'])->nam
 
 Route::post('/cart/add/{product}',[\App\Http\Controllers\CartController ::class, 'addItem'])->name('cart.add');
 
-Route::get('/test', function () {
-    Cart::add('293ad', 'chips', 1, 2.50);
-});
+Route::get('/cart/die', [\App\Http\Controllers\CartController ::class, 'destroy'])->name('cart.destroy');
 
-Route::get('/die', function () {
-    Cart::destroy();
-});
+Route::get('/checkout', [\App\Http\Controllers\CartController ::class, 'checkout'])->name('cart.checkout');
+Route::post('/checkout', [\App\Http\Controllers\CartController ::class, 'stripe'])->name('cart.stripe');
+
+

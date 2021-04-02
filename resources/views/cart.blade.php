@@ -4,6 +4,17 @@
             <h2 class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
                 Cart
             </h2>
+            <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
+                <a href="{{route('cart.checkout')}}">
+                <x-jet-button>Check Out</x-jet-button>
+                </a>
+            </div>
+
+            <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
+                <a href="{{ route('cart.destroy') }}">
+                <x-jet-danger-button>Clear Cart</x-jet-danger-button>
+                </a>
+            </div>
         </div>
     </x-slot>
 
