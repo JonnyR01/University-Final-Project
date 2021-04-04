@@ -13,18 +13,28 @@
                 @endif
 
                 @foreach($products as $product)  <?php /*loop to display products from database, displaying the name of each product and its price to 2 decimal places */?>
-                   <div class="flex p-4 m-2 hover:bg-gray-200">
-                       <h1 class="text-xl flex-auto"> {{$product->name}}</h1>
+                <div class="flex p-4 m-2 hover:bg-gray-200">
+                    <h1 class="text-xl flex-auto"> {{$product->name}}</h1>
                     <div class="text-xl">£{{number_format($product->price,2)}}</div>
-                       <x-jet-button onClick="event.preventDefault();
-                           document.getElementById('add-tocart-form-{{$product->id}}').submit()">Add to Cart
-                       </x-jet-button>
 
-                       <form id="add-tocart-form-{{$product->id}}" action="{{route('cart.add', $product->id)}}" method="POST" style="display: none">
-                           @csrf
-                           @method("POST")
-                       </form>
-                   </div>
+                    @if (Route::has('login'))
+                        @auth
+                            <x-jet-button onClick="event.preventDefault();
+                                document.getElementById('add-tocart-form-{{$product->id}}').submit()">Add to Cart
+                            </x-jet-button>
+                        @else
+                            <a href="{{ route('login') }}">
+                                <x-jet-button>Login</x-jet-button>
+                            </a>
+                        @endauth
+                    @endif
+                </div>
+
+                <form id="add-tocart-form-{{$product->id}}" action="{{route('cart.add', $product->id)}}" method="POST"
+                      style="display: none">
+                    @csrf
+                    @method("POST")
+                </form>
                 @endforeach
             </div>
         </div>

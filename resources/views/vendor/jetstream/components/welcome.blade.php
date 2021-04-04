@@ -22,7 +22,7 @@
                 <div class="flex items-center">
                     <i class="fa fa-burger"></i>
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="http://127.0.0.1:8000/house-specials" class="underline text-gray-900 dark:text-white">House Specials</a>
+                        <a href="{{ route('products.specials') }}" class="underline text-gray-900 dark:text-white">House Specials</a>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@
             <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                 <div class="flex items-center">
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="http://127.0.0.1:8000/maincourses" class="underline text-gray-900 dark:text-white">
+                        <a href="{{ route('products.maincourses') }}" class="underline text-gray-900 dark:text-white">
                             Main Course</a>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
             <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-t-0">
                 <div class="flex items-center">
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="http://127.0.0.1:8000/breakfasts" class="underline text-gray-900 dark:text-white">Breakfast</a>
+                        <a href="{{ route('products.breakfasts') }}" class="underline text-gray-900 dark:text-white">Breakfast</a>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@
             <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                 <div class="flex items-center">
                     <div class="ml-4 text-lg leading-7 font-semibold">
-                        <a href="http://127.0.0.1:8000/deserts" class="underline text-gray-900 dark:text-white">Deserts</a>
+                        <a href="{{ route('products.deserts') }}" class="underline text-gray-900 dark:text-white">Deserts</a>
                     </div>
                 </div>
 

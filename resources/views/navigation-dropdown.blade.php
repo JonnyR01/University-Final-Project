@@ -17,25 +17,25 @@
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="http://127.0.0.1:8000/house-specials" :active="request()->routeIs('house-specials')">
+                    <x-jet-nav-link href="{{ route('products.specials') }}" :active="request()->routeIs('house-specials')">
                         {{ __('House Specials') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="http://127.0.0.1:8000/maincourses" :active="request()->routeIs('maincourses')">
+                    <x-jet-nav-link href="{{ route('products.maincourses') }}" :active="request()->routeIs('maincourses')">
                         {{ __('Main Courses') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="http://127.0.0.1:8000/breakfasts" :active="request()->routeIs('breakfasts')">
+                    <x-jet-nav-link href="{{ route('products.breakfasts') }}" :active="request()->routeIs('breakfasts')">
                         {{ __('Breakfast') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="http://127.0.0.1:8000/deserts" :active="request()->routeIs('deserts')">
+                    <x-jet-nav-link href="{{ route('products.deserts') }}" :active="request()->routeIs('deserts')">
                         {{ __('Desert') }}
                     </x-jet-nav-link>
                 </div>

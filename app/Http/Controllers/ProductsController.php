@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -33,6 +34,12 @@ class ProductsController extends Controller
         //breakfast food products
         $products = Products::where('type',"=",'deserts')->get();
         return view('products')->withProducts($products)->withTitle('Deserts');
+    }
+
+    public function orders()
+    {
+        $orders = Order::all();
+        return view('admin.products.orders')->withOrders($orders);
     }
 
 }

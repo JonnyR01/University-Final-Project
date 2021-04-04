@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Products;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Stripe\Product;
 
@@ -32,6 +33,13 @@ class AdminProducts extends Controller
         return view('admin.products.create', ['products' =>Products::all()] );
     }
 
+
+    public function orders()
+    {
+
+        $order = Order::all();
+        return view('admin.products.orders',['orders' => Order::paginate(10)]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -50,9 +58,9 @@ class AdminProducts extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($product)
+    public function dash()
     {
-        //
+        return view('admin.admindash');
     }
 
     /**

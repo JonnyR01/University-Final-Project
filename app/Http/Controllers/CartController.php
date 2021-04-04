@@ -101,10 +101,18 @@ class CartController extends Controller
     {
         //dd($request);
         $user = Auth::user();
+        $order= $user->orders()->create([
+            'name' => $request->get('card-holder-name'),
+            'address' => $request->get('address'),
+            'postcode' => $request->get('postcode'),
+            'phone-number' => $request->get('phone-number'),
+            'totalprice' => Cart::pricetotal(),
+            'content'=>serialize(Cart::content())
+        ]);
         $stripeCustomer = $user->createOrGetStripeCustomer();
         $stripeCharge = $request->user()->charge(
-            Cart::pricetotal()*100, $request->get('card-id')
+            Cart::pricetotal() * 100, $request->get('card-id')
         );
-        return redirect()->back();
+        return view('success');
     }
 }

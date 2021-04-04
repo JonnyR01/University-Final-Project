@@ -14,12 +14,37 @@
         <form method="POST" id="payment-form" action="{{ route('cart.stripe') }}">
             @csrf
 
-            <input id="card-holder-name" type="text">
+            <div>
+                <x-jet-label for="card-holder-name" value="{{ __('Card holder name') }}"/>
+                <x-jet-input id="card-holder-name" class="block mt-1 w-full" type="text" name="card-holder-name"
+                             required
+                             autofocus autocomplete="name"/>
+            </div>
+
+            <div>
+                <x-jet-label for="address" value="{{ __('Delivery address') }}"/>
+                <x-jet-input id="address" class="block mt-1 w-full" type="text" name="address" required
+                             autocomplete="address"/>
+            </div>
+
+            <div>
+                <x-jet-label for="postcode" value="{{ __('Delivery postcode') }}"/>
+                <x-jet-input id="postcode" class="block mt-1 w-full" type="text" name="postcode" required
+                             autocomplete="postcode"/>
+            </div>
+
+            <div>
+                <x-jet-label for="phone-number" value="{{ __('Phone number') }}"/>
+                <x-jet-input id="phone-number" class="block mt-1 w-full" type="text" name="phone-number" required
+                             autocomplete="phone-number"/>
+            </div>
+
             <input id="card-id" name="card-id" type="hidden" value="">
 
             <!-- Stripe Elements Placeholder -->
-            <div id="card-element"></div>
-
+            <div class="form-input rounded-md shadow-sm mt-4">
+                <div id="card-element"></div>
+            </div>
             <div class="flex items-center justify-end mt-4">
                 <div>
                     <x-jet-button id="card-button" data-secret="{{ $intent->client_secret }}">Proceed to payment

@@ -4,17 +4,25 @@
             <h2 class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
                 Cart
             </h2>
+            @if (Route::has('login'))
             <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
+                @auth
                 <a href="{{route('cart.checkout')}}">
                 <x-jet-button>Check Out</x-jet-button>
                 </a>
+                @else
+                    <a href="{{ route('login') }}">
+                        <x-jet-button>Login to order</x-jet-button>
+                    </a>
             </div>
-
+            @endif
+            @endauth
             <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
                 <a href="{{ route('cart.destroy') }}">
                 <x-jet-danger-button>Clear Cart</x-jet-danger-button>
                 </a>
             </div>
+
         </div>
     </x-slot>
 
