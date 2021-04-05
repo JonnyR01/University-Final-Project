@@ -45,6 +45,14 @@
                         {{ __('View Cart') }}
                     </x-jet-nav-link>
                 </div>
+                @if(Auth::user() && Auth::user()->hasRole('Admin'))
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('admindash') }}" :active="request()->routeIs('cart')">
+                        {{ __('Admin Dashboard') }}
+                    </x-jet-nav-link>
+                </div>
+                    @endif
+
             </div>
 
             <!-- Settings Dropdown -->
