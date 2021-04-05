@@ -13,8 +13,13 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="type" value="{{ __('Type') }}" />
-                <x-jet-input id="type" class="block mt-1 w-full" type="text" name="type" :value="old('type')"/>
+                <x-jet-label for="type" value="{{ __('Type') }}"></x-jet-label>
+                <select id="type" class="block mt-1 w-full" name="type">
+                    <option value="main course">Main course</option>
+                    <option value="house special">House special</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="deserts">Deserts</option>
+                </select>
             </div>
 
             <div class="mt-4">

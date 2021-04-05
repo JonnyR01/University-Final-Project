@@ -15,7 +15,7 @@
                 @foreach($products as $product)  <?php /*loop to display products from database, displaying the name of each product and its price to 2 decimal places */?>
                 <div class="flex p-4 m-2 hover:bg-gray-200">
                     <h1 class="text-xl flex-auto"> {{$product->name}}</h1>
-                    <div class="text-xl">£{{number_format($product->price,2)}}</div>
+                    <div class="text-xl mr-8">£{{number_format($product->price,2)}}</div>
 
                     @if (Route::has('login'))
                         @auth

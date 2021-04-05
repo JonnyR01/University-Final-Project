@@ -5,7 +5,7 @@
                 Cart
             </h2>
             @if (Route::has('login'))
-            <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
+            <div class="flex p-4 m-2 font-semibold text-xl text-gray-800 leading-tight">
                 @auth
                 <a href="{{route('cart.checkout')}}">
                 <x-jet-button>Check Out</x-jet-button>
@@ -17,7 +17,7 @@
             </div>
             @endif
             @endauth
-            <div class="flex-grow font-semibold text-xl text-gray-800 leading-tight">
+            <div class="flex-grow mx-3 font-semibold text-xl text-gray-800 leading-tight">
                 <a href="{{ route('cart.destroy') }}">
                 <x-jet-danger-button>Clear Cart</x-jet-danger-button>
                 </a>
@@ -31,8 +31,9 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @foreach($contents as $item)
                 <div class="flex p-4 m-2 hover:bg-gray-200">
-                    <h1 class="text-xl flex-auto"> {{$item->name}}</h1>
-                    <div class="text-xl">£{{number_format($item->price,2)}}</div>
+                    <h1 class="text-xl flex-auto"> {{$item->name}} </h1>
+                    <div class="text-xl mr-8">£{{number_format($item->price,2)}}</div>
+                    <div class="text-xl">qty={{($item->qty)}}</div>
                 </div>
 
                 @endforeach

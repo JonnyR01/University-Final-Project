@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <x-jet-authentication-card-logo></x-jet-authentication-card-logo>
         </x-slot>
 
         <form method="POST" action="{{ route('admin.products.update', $product) }}">
@@ -9,13 +9,18 @@
             @method('PATCH')
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$product->name}}"/>
+                <x-jet-label for="name" value="{{ __('Name') }}"></x-jet-label>
+                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$product->name}}"></x-jet-input>
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="type" value="{{ __('Type') }}" />
-                <x-jet-input id="type" class="block mt-1 w-full" type="text" name="type" value="{{$product->type }}"/>
+                <x-jet-label for="type" value="{{ __('Type') }}"></x-jet-label>
+                <select id="type" class="block mt-1 w-full" name="type" value="{{$product->type }}">
+                    <option value="main course">Main course</option>
+                    <option value="house special">House special</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="deserts">Deserts</option>
+                </select>
             </div>
 
             <div class="mt-4">
@@ -25,7 +30,6 @@
             <x-jet-button class="ml-4">
                 {{ __('Submit') }}
             </x-jet-button>
-            </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
