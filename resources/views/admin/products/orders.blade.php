@@ -41,11 +41,7 @@
                 </tr>
 
             @endforeach
-
-
         @endforeach
         </tbody>
     </table>
-
-
 </x-app-layout>

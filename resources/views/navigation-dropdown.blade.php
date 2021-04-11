@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+
                     </a>
                 </div>
 
@@ -47,7 +47,7 @@
                 </div>
                 @if(Auth::user() && Auth::user()->hasRole('Admin'))
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('admindash') }}" :active="request()->routeIs('admindash')">
+                    <x-jet-nav-link href="{{ route('admin.admindash') }}" :active="request()->routeIs('admindash')">
                         {{ __('Admin Dashboard') }}
                     </x-jet-nav-link>
                 </div>

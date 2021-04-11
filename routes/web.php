@@ -27,11 +27,13 @@ Route::get('/products/deserts', [ProductsController::class, 'deserts'])->name('p
 
 //Admin Routes
 Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+    Route::get('/admindash',[AdminProducts::class, 'dash'])->name('admindash');
     Route::resource('/products', AdminProducts::class);
     Route::get('orders', [ProductsController::class, 'orders'])->name('products.orders');
 });
 
-Route::get('/admindash',[AdminProducts::class, 'dash'])->name('admindash');
+
+
 
 // Cart Routes
 Route::get('/cart', [CartController ::class, 'index'])->name('cart');
