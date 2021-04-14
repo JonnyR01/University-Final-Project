@@ -10,6 +10,7 @@
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}"></x-jet-label>
+                <span style="color: red">@error('name'){{$message}}@enderror</span>
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" value="{{$product->name}}"></x-jet-input>
             </div>
 
@@ -25,7 +26,8 @@
 
             <div class="mt-4">
                 <x-jet-label for="price" value="{{ __('Price') }}" />
-                <x-jet-input id="price" class="block mt-1 w-full" type="double" name="price" value="{{$product->price}}" />
+                <span style="color: red">@error('price'){{$message}}@enderror</span>
+                <x-jet-input id="price" class="block mt-1 w-full" type="number" name="price" value="{{$product->price}}" />
             </div>
             <x-jet-button class="ml-4">
                 {{ __('Submit') }}

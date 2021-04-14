@@ -42,7 +42,10 @@ class CartController extends Controller
 
     public function stripe(Request $request)
     {
-        //dd($request);
+        $request->validate([
+            "phone-number" =>"required|numeric|max:12",
+            "postcode" =>"required|regex:/^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/"
+        ]);
         $user = Auth::user();
         $order= $user->orders()->create([
             'name' => $request->get('card-holder-name'),

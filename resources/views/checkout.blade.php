@@ -16,8 +16,7 @@
 
             <div>
                 <x-jet-label for="card-holder-name" value="{{ __('Card holder name') }}"></x-jet-label>
-                <x-jet-input id="card-holder-name" class="block mt-1 w-full" type="text" name="card-holder-name"
-                             required
+                <x-jet-input id="card-holder-name" class=" block mt-1 w-full" type="text" name="card-holder-name" required
                              autofocus autocomplete="name"></x-jet-input>
             </div>
 
@@ -35,7 +34,7 @@
 
             <div>
                 <x-jet-label for="phone-number" value="{{ __('Phone number') }}"></x-jet-label>
-                <x-jet-input id="phone-number" class="block mt-1 w-full" type="text" name="phone-number" required
+                <x-jet-input id="phone-number" class="block mt-1 w-full" type="number" name="phone-number" required
                              autocomplete="phone-number"></x-jet-input>
             </div>
 
