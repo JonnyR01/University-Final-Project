@@ -36,7 +36,7 @@ class ProductsController extends Controller
         return view('products')->withProducts($products)->withTitle('Deserts');
     }
 
-    public function orders()
+    public function orders() // displays all the previous orders
     {
         $orders = Order::all();
         return view('admin.products.orders')->withOrders($orders);

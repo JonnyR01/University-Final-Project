@@ -49,7 +49,7 @@ class AdminProducts extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           "price" =>"required|numeric"
+            "price" => "required|regex:/^\d+(\.\d{1,2})?$/"
         ]);
         $product = Products::create($request->except(['_token']));
         return redirect(route('admin.products.index'));

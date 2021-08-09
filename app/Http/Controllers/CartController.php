@@ -42,11 +42,13 @@ class CartController extends Controller
 
     public function stripe(Request $request)
     {
+        // Validation on the phone number and post code
         $request->validate([
-            "phone-number" =>"required|numeric|max:12",
+            "phone-number" =>"required|numeric|max:999999999999",
             "postcode" =>"required|regex:/^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/"
         ]);
         $user = Auth::user();
+        //taking user input to display in orders
         $order= $user->orders()->create([
             'name' => $request->get('card-holder-name'),
             'address' => $request->get('address'),
@@ -55,6 +57,7 @@ class CartController extends Controller
             'totalprice' => Cart::pricetotal(),
             'content'=>serialize(Cart::content())
         ]);
+        // creating stripe user and then charging the pricetotal
         $stripeCustomer = $user->createOrGetStripeCustomer();
         $stripeCharge = $request->user()->charge(
             Cart::pricetotal() * 100, $request->get('card-id')

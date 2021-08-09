@@ -1,3 +1,4 @@
+<title>Manage Products</title>
 <x-app-layout>
     <x-slot name="header">
         <div class="flex">

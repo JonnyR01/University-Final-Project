@@ -1,3 +1,4 @@
+<title>Edit Product</title>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -26,8 +27,8 @@
 
             <div class="mt-4">
                 <x-jet-label for="price" value="{{ __('Price') }}" />
-                <span style="color: red">@error('price'){{$message}}@enderror</span>
-                <x-jet-input id="price" class="block mt-1 w-full" type="number" name="price" value="{{$product->price}}" />
+
+                <x-jet-input id="price" class="block mt-1 w-full"  type="number" name="price" value="{{$product->price}}" />
             </div>
             <x-jet-button class="ml-4">
                 {{ __('Submit') }}

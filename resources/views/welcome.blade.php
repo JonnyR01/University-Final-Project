@@ -38,9 +38,6 @@
                 </div>
             @endif
                 <x-jet-welcome />
-
-
         </div>
-        <x-treenation::tracker />
     </body>
 </html>

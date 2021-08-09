@@ -1,10 +1,12 @@
+<title>Admin Dashboard</title>
 <x-app-layout>
+    @section('title', $title ?? 'Admin Dashboard')
     <x-slot name="header">
+
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Admin dashboard
         </h2>
     </x-slot>
-
 
     <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
         <div class="grid grid-cols-1 md:grid-cols-2">

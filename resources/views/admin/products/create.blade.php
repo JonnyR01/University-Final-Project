@@ -1,3 +1,4 @@
+<title>Create Product</title>
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -26,8 +27,7 @@
 
             <div class="mt-4">
                 <x-jet-label for="price" value="{{ __('Price') }}"></x-jet-label>
-                <span style="color: red">@error('price'){{$message}}@enderror</span>
-                <x-jet-input id="price" class="block mt-1 w-full" type="number" name="price" :value="old('price')" required></x-jet-input>
+                <x-jet-input id="price" class="block mt-1 w-full"  type="text" name="price" :value="old('price')" required></x-jet-input>
             </div>
 
                 <x-jet-button class="ml-4">
